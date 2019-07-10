@@ -1,19 +1,19 @@
 {
-  "name": "vcf-element",
+  "name": "vcf-share-dialog",
   "version": "0.1.0",
-  "description": "Vaadin Component Factory Element",
-  "main": "theme/lumo/vcf-element.js",
+  "description": "Vaadin Component Factory Share Dialog",
+  "main": "theme/lumo/vcf-share-dialog.js",
   "author": "Vaadin Ltd",
   "license": "https://raw.githubusercontent.com/vaadin/vaadin-incubator-element/master/LICENSE",
   "repository": {
     "type": "git",
-    "url": "vaadin-component-factory/vcf-element"
+    "url": "vaadin-component-factory/vcf-share-dialog"
   },
   "keywords": [
     "Vaadin",
     "vaadin-incubator-element",
     "vaadin-component-factory",
-    "vcf-element",
+    "vcf-share-dialog",
     "web-components",
     "web-component",
     "polymer"

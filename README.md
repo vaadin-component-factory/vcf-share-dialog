@@ -1,28 +1,26 @@
-# &lt;vcf-element&gt;
-
-**Note that this is a starter boilerplate for creating Polymer 3 based components.**
+# &lt;vcf-share-dialog&gt;
 
 ## Installation
 
-Install `vcf-element`:
+Install `vcf-share-dialog`:
 
 ```sh
-npm i @vaadin/vcf-element --save
+npm i @vaadin/vcf-share-dialog --save
 ```
 
 Once installed, import it in your application:
 
 ```js
-import '@vaadin/vcf-element/vcf-element.js';
+import '@vaadin/vcf-share-dialog/vcf-share-dialog.js';
 ```
 
 ## Running demo
 
-1. Fork the `vcf-element` repository and clone it locally.
+1. Fork the `vcf-share-dialog` repository and clone it locally.
 
 1. Make sure you have [npm](https://www.npmjs.com/) installed.
 
-1. When in the `vcf-element` directory, run `npm install` to install dependencies.
+1. When in the `vcf-share-dialog` directory, run `npm install` to install dependencies.
 
 1. Run `npm start` to open the demo.
 
