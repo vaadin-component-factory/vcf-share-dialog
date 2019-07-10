@@ -5,13 +5,13 @@
 Install `vcf-share-dialog`:
 
 ```sh
-npm i @vaadin/vcf-share-dialog --save
+npm i @vaadin-component-factory/vcf-share-dialog --save
 ```
 
 Once installed, import it in your application:
 
 ```js
-import '@vaadin/vcf-share-dialog/vcf-share-dialog.js';
+import '@vaadin-component-factory/vcf-share-dialog/vcf-share-dialog.js';
 ```
 
 ## Running demo
