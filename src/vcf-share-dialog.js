@@ -11,6 +11,7 @@ import '@polymer/iron-icon';
 import '@vaadin-component-factory/vcf-avatar-item';
 
 import './icons';
+import resources from './locales.js';
 
 class VcfShareDialog extends ElementMixin(ThemableMixin(mixinBehaviors([AppLocalizeBehavior], PolymerElement))) {
   static get template() {
@@ -202,24 +203,23 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(mixinBehaviors([AppLocal
         type: Boolean,
         value: 'share' in navigator
       },
-      localize: Function
+      resources: {
+        type: Object,
+        value: () => resources
+      }
     };
   }
 
   attached() {
     super.attached();
 
-    this.loadResources(this.resolveUrl('../assets/locales.json'));
-
-    this.addEventListener('app-localize-resources-loaded', () => {
-      this.buttonCaption = this.buttonCaption || this.localize('buttonCaption');
-      this.titleText = this.titleText || this.localize('title');
-      this.descriptionText = this.descriptionText || this.localize('description');
-      this.copyText = this.copyText || this.localize('copy');
-      this.membersText = this.membersText || this.localize('members');
-      this.closeText = this.closeText || this.localize('close');
-      this.copiedText = this.copiedText || this.localize('copied');
-    });
+    this.buttonCaption = this.buttonCaption || this.localize('buttonCaption');
+    this.titleText = this.titleText || this.localize('title');
+    this.descriptionText = this.descriptionText || this.localize('description');
+    this.copyText = this.copyText || this.localize('copy');
+    this.membersText = this.membersText || this.localize('members');
+    this.closeText = this.closeText || this.localize('close');
+    this.copiedText = this.copiedText || this.localize('copied');
   }
 
   showShareView() {
