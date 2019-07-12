@@ -36,9 +36,16 @@
     ]
   },
   "dependencies": {
+    "@polymer/app-localize-behavior": "^3.0.1",
+    "@polymer/iron-icon": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
+    "@vaadin-component-factory/vcf-avatar-item": "^0.1.1",
+    "@vaadin/vaadin-button": "^2.2.0",
+    "@vaadin/vaadin-dialog": "^2.2.1",
     "@vaadin/vaadin-element-mixin": "^2.1.3",
     "@vaadin/vaadin-lumo-styles": "^1.5.0",
+    "@vaadin/vaadin-notification": "^1.4.0",
+    "@vaadin/vaadin-text-field": "^2.4.7",
     "@vaadin/vaadin-themable-mixin": "^1.4.4"
   },
   "devDependencies": {

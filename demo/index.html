@@ -18,7 +18,46 @@
     <div class="vertical-section-container">
       <demo-snippet>
         <template>
-          <vcf-share-dialog></vcf-share-dialog>
+          <!-- Minimum settings -->
+          <vcf-share-dialog share-url="https://vaadin.com"></vcf-share-dialog>
+          <!-- 
+            All settings:
+            share-url: The url which will be shared.
+            language: Language used for default texts, default is 'en'.
+            button-caption: Text shown inside the button.
+            title-text: Title of share dialog.
+            secondary-title-text: Secondary title shown on the top right corner of share dialog.
+            share-title: Title used for native share.
+            share-text: Description used for native share.
+            description-text: Description text of share dialog.
+            copy-text: Text shown inside copy button.
+            notes-text: Secondary text shown after copy button.
+            members-text: Title of members section.
+            close-text: Text shown inside close button.
+            copied-text: Text shown when the share url is copied.
+          -->
+          <vcf-share-dialog
+            share-url="https://vaadin.com/components"
+            button-caption="Share this..."
+            title-text="Share Project"
+            secondary-title-text="My Project"
+            share-title="My awesome project"
+            share-text="Read about my awesome project"
+            description-text="Share my project with your friends."
+            copy-text="Copy this URL"
+            notes-text="By sharing my project, anyone with the link can access it."
+            members-text="Friends"
+            close-text="Cancel"
+            copied-text="Link copied!"
+          ></vcf-share-dialog>
+          <script>
+            window.addEventListener('WebComponentsReady', () => {
+              const members = [{ name: 'Jennifer' }, { name: 'Tom' }];
+              // assign members array to all share dialogs
+              const shareDialogs = document.querySelectorAll('vcf-share-dialog');
+              [...shareDialogs].forEach(shareDialog => (shareDialog.members = members));
+            });
+          </script>
         </template>
       </demo-snippet>
     </div>
