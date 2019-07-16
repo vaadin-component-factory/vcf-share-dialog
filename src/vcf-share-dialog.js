@@ -173,7 +173,7 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(mixinBehaviors([AppLocal
   }
 
   static get version() {
-    return '0.1.0';
+    return '0.1.2';
   }
 
   static get properties() {

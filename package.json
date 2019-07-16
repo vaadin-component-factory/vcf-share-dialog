@@ -1,6 +1,6 @@
 {
   "name": "@vaadin-component-factory/vcf-share-dialog",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vaadin Component Factory Share Dialog",
   "main": "theme/lumo/vcf-share-dialog.js",
   "author": "Vaadin Ltd",
@@ -38,6 +38,7 @@
   "dependencies": {
     "@polymer/app-localize-behavior": "^3.0.1",
     "@polymer/iron-icon": "^3.0.1",
+    "@polymer/iron-iconset-svg": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
     "@vaadin-component-factory/vcf-avatar-item": "^0.1.1",
     "@vaadin/vaadin-button": "^2.2.0",
