@@ -1,6 +1,4 @@
 import { html, PolymerElement } from '@polymer/polymer/polymer-element';
-import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class.js';
-import { AppLocalizeBehavior } from '@polymer/app-localize-behavior/app-localize-behavior.js';
 import { ThemableMixin } from '@vaadin/vaadin-themable-mixin';
 import { ElementMixin } from '@vaadin/vaadin-element-mixin';
 import '@vaadin/vaadin-button';
@@ -11,9 +9,8 @@ import '@polymer/iron-icon';
 import '@vaadin-component-factory/vcf-avatar-item';
 
 import './icons';
-import resources from './locales.js';
 
-class VcfShareDialog extends ElementMixin(ThemableMixin(mixinBehaviors([AppLocalizeBehavior], PolymerElement))) {
+class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
   static get template() {
     return html`
       <style>
@@ -173,53 +170,66 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(mixinBehaviors([AppLocal
   }
 
   static get version() {
-    return '0.1.2';
+    return '0.2.0';
   }
 
   static get properties() {
     return {
-      buttonCaption: String,
-      titleText: String,
-      shareTitle: String,
-      shareText: String,
-      secondaryTitleText: String,
-      descriptionText: String,
-      copyText: String,
-      notesText: String,
-      membersText: String,
-      closeText: String,
-      copiedText: String,
+      buttonCaption: {
+        type: String,
+        value: 'Share'
+      },
+      titleText: {
+        type: String,
+        value: 'Share'
+      },
+      shareTitle: {
+        type: String,
+        value: ''
+      },
+      shareText: {
+        type: String,
+        value: 'Share...'
+      },
+      secondaryTitleText: {
+        type: String,
+        value: ''
+      },
+      descriptionText: {
+        type: String,
+        value: 'Invite people to collaborate by sending them the public address.'
+      },
+      copyText: {
+        type: String,
+        value: 'Copy to clipboard'
+      },
+      notesText: {
+        type: String,
+        value: ''
+      },
+      membersText: {
+        type: String,
+        value: 'Current members'
+      },
+      closeText: {
+        type: String,
+        value: 'Close'
+      },
+      copiedText: {
+        type: String,
+        value: 'Link copied to clipboard'
+      },
 
       shareUrl: String,
       members: {
         type: Array,
         value: () => []
       },
-      language: {
-        type: String,
-        value: 'en'
-      },
       webShare: {
         type: Boolean,
         value: 'share' in navigator
-      },
-      resources: {
-        type: Object,
-        value: () => resources
       }
     };
-  }
-
-  attached() {
-    super.attached();
-
-    this.buttonCaption = this.buttonCaption || this.localize('buttonCaption');
-    this.titleText = this.titleText || this.localize('title');
-    this.descriptionText = this.descriptionText || this.localize('description');
-    this.copyText = this.copyText || this.localize('copy');
-    this.membersText = this.membersText || this.localize('members');
-    this.closeText = this.closeText || this.localize('close');
-    this.copiedText = this.copiedText || this.localize('copied');
   }
 
   showShareView() {
