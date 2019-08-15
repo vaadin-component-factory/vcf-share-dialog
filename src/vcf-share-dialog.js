@@ -131,11 +131,11 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
               <vaadin-button
                 theme="tertiary small"
                 on-click="openWebShare"
-                title="[[localize('share')]]"
+                title="[[shareText]]"
                 hidden$="[[!webShare]]"
               >
                 <iron-icon icon="taskmob:share" slot="prefix"></iron-icon>
-                <span>[[localize('share')]]</span>
+                <span>[[shareText]]</span>
               </vaadin-button>
             </div>
             <p class="small">[[notesText]]</p>
@@ -170,7 +170,7 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
   }
 
   static get version() {
-    return '0.2.0';
+    return '0.2.1';
   }
 
   static get properties() {
