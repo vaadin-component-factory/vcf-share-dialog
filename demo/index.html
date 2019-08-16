@@ -9,33 +9,52 @@
       import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
       import '@polymer/iron-demo-helpers/demo-snippet';
       import '../theme/lumo/vcf-share-dialog.js';
+      window.addEventListener('WebComponentsReady', () => document.querySelector('main').classList.remove('hidden'));
     </script>
     <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles"></style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        main {
+          opacity: 1;
+          transition: opacity 1s;
+        }
+        main.hidden {
+          opacity: 0;
+        }
+        .settings-list {
+          margin-top: 0;
+          padding-left: 0;
+          list-style-type: none;
+        }
+      </style>
     </custom-style>
   </head>
   <body>
-    <div class="vertical-section-container">
+    <main class="vertical-section-container centered hidden">
+      <h3>Basic</h3>
       <demo-snippet>
         <template>
-          <!-- Minimum settings -->
-          <vcf-share-dialog share-url="https://vaadin.com"></vcf-share-dialog>
-          <!-- 
-            All settings:
-            share-url: The url which will be shared.
-            language: Language used for default texts, default is 'en'.
-            button-caption: Text shown inside the button.
-            title-text: Title of share dialog.
-            secondary-title-text: Secondary title shown on the top right corner of share dialog.
-            share-title: Title used for native share.
-            share-text: Description used for native share.
-            description-text: Description text of share dialog.
-            copy-text: Text shown inside copy button.
-            notes-text: Secondary text shown after copy button.
-            members-text: Title of members section.
-            close-text: Text shown inside close button.
-            copied-text: Text shown when the share url is copied.
-          -->
+          <vcf-share-dialog></vcf-share-dialog>
+        </template>
+      </demo-snippet>
+      <h3>All settings</h3>
+      <ul class="settings-list">
+        <li><strong>share-url:</strong> The url which will be shared.</li>
+        <li><strong>language:</strong> Language used for default texts, default is 'en'.</li>
+        <li><strong>button-caption:</strong> Text shown inside the button.</li>
+        <li><strong>title-text:</strong> Title of share dialog.</li>
+        <li><strong>secondary-title-text:</strong> Secondary title shown on the top right corner of share dialog.</li>
+        <li><strong>share-title:</strong> Title used for native share.</li>
+        <li><strong>share-text:</strong> Description used for native share.</li>
+        <li><strong>share-button-text:</strong> Text shown inside native share button.</li>
+        <li><strong>description-text:</strong> Description text of share dialog.</li>
+        <li><strong>copy-text:</strong> Text shown inside copy button.</li>
+        <li><strong>notes-text:</strong> Secondary text shown after copy button.</li>
+        <li><strong>members-text:</strong> Title of members section.</li>
+        <li><strong>close-text:</strong> Text shown inside close button.</li>
+        <li><strong>copied-text:</strong> Text shown when the share url is copied.</li>
+      </ul>
+      <demo-snippet>
+        <template>
           <vcf-share-dialog
             share-url="https://vaadin.com/components"
             button-caption="Share this..."
@@ -43,6 +62,7 @@
             secondary-title-text="My Project"
             share-title="My awesome project"
             share-text="Read about my awesome project"
+            share-button-text="Share awesome project"
             description-text="Share my project with your friends."
             copy-text="Copy this URL"
             notes-text="By sharing my project, anyone with the link can access it."
@@ -60,6 +80,6 @@
           </script>
         </template>
       </demo-snippet>
-    </div>
+    </main>
   </body>
 </html>

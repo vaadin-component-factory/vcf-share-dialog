@@ -40,6 +40,7 @@
     "@polymer/iron-iconset-svg": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
     "@vaadin-component-factory/vcf-avatar-item": "^0.1.1",
+    "@vaadin-component-factory/vcf-webshare-button": "^0.1.0",
     "@vaadin/vaadin-button": "^2.2.0",
     "@vaadin/vaadin-dialog": "^2.2.1",
     "@vaadin/vaadin-element-mixin": "^2.1.3",
