@@ -7,6 +7,7 @@ import '@vaadin/vaadin-dialog';
 import '@vaadin/vaadin-notification';
 import '@polymer/iron-icon';
 import '@vaadin-component-factory/vcf-avatar-item';
+import '@vaadin-component-factory/vcf-webshare-button';
 
 import './icons';
 
@@ -128,15 +129,13 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
                 <iron-icon icon="taskmob:clipboard" slot="prefix"></iron-icon>
                 <span>[[copyText]]</span>
               </vaadin-button>
-              <vaadin-button
-                theme="tertiary small"
-                on-click="openWebShare"
-                title="[[shareText]]"
-                hidden$="[[!webShare]]"
-              >
-                <iron-icon icon="taskmob:share" slot="prefix"></iron-icon>
-                <span>[[shareText]]</span>
-              </vaadin-button>
+              <vcf-webshare-button
+                share-url="[[shareUrl]]"
+                share-text="[[shareText]]"
+                share-title="[[shareTitle]]"
+                share-button-text="[[shareButtonText]]"
+                browser-compatible="[[webShare]]"
+              ></vcf-webshare-button>
             </div>
             <p class="small">[[notesText]]</p>
             <template is="dom-if" if="[[members.length]]">
@@ -170,7 +169,7 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
   }
 
   static get version() {
-    return '0.2.1';
+    return '0.3.0';
   }
 
   static get properties() {
@@ -188,6 +187,10 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
         value: ''
       },
       shareText: {
+        type: String,
+        value: ''
+      },
+      shareButtonText: {
         type: String,
         value: 'Share...'
       },
@@ -219,7 +222,6 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
         type: String,
         value: 'Link copied to clipboard'
       },
-
       shareUrl: String,
       members: {
         type: Array,
@@ -242,19 +244,6 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
 
   hideShareView() {
     this.$.shareView.opened = false;
-  }
-
-  openWebShare() {
-    if (window.ga) {
-      window.ga('send', 'event', 'Sharing', 'native api used');
-    }
-
-    const shareOptions = {
-      title: this.shareTitle,
-      text: this.shareText,
-      url: this.shareUrl
-    };
-    navigator.share(shareOptions);
   }
 
   iOSDevice() {
