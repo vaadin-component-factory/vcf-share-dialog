@@ -11,6 +11,11 @@ import '@vaadin-component-factory/vcf-webshare-button';
 
 import './icons';
 
+/*
+ * The component fires 2 custom events:
+ *  - vcf-share-dialog-opened: when the share dialog opens
+ *  - vcf-share-dialog-link-copied: when the sharable link is copied
+ */
 class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
   static get template() {
     return html`
@@ -110,7 +115,7 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
         }
       </style>
       <vaadin-button theme="small" on-click="showShareView" class="share-button">
-        <iron-icon icon="taskmob:user-plus" slot="prefix"></iron-icon>
+        <iron-icon icon="vcf:user-plus" slot="prefix"></iron-icon>
         <span>[[buttonCaption]]</span>
       </vaadin-button>
 
@@ -118,7 +123,7 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
         <template>
           <div class="share-view">
             <h3>
-              <iron-icon icon="taskmob:user-plus"></iron-icon>
+              <iron-icon icon="vcf:user-plus"></iron-icon>
               <b>[[titleText]]</b>
               <span>[[secondaryTitleText]]</span>
             </h3>
@@ -126,7 +131,7 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
             <vaadin-text-field readonly value="[[shareUrl]]" autoselect></vaadin-text-field>
             <div class="share-buttons">
               <vaadin-button theme="tertiary small" on-click="copyShareUrlToClipboard" title="[[copyText]]">
-                <iron-icon icon="taskmob:clipboard" slot="prefix"></iron-icon>
+                <iron-icon icon="vcf:clipboard" slot="prefix"></iron-icon>
                 <span>[[copyText]]</span>
               </vaadin-button>
               <vcf-webshare-button
@@ -169,7 +174,7 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
   }
 
   static get version() {
-    return '0.2.1';
+    return '0.4.0';
   }
 
   static get properties() {
@@ -235,9 +240,7 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
   }
 
   showShareView() {
-    if (window.ga) {
-      window.ga('send', 'event', 'Sharing', 'dialog opened');
-    }
+    this.dispatchEvent(new CustomEvent('vcf-share-dialog-opened', { bubbles: true, composed: true, cancelable: true }));
 
     this.$.shareView.opened = true;
   }
@@ -251,9 +254,7 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
   }
 
   copyShareUrlToClipboard() {
-    if (window.ga) {
-      window.ga('send', 'event', 'Sharing', 'link copied');
-    }
+    this.dispatchEvent(new CustomEvent('vcf-share-dialog-link-copied', { bubbles: true, composed: true }));
 
     // https://gist.github.com/lgarron/d1dee380f4ed9d825ca7
     const urlTextField = this.$.shareView.$.overlay.$.content.shadowRoot.querySelector('vaadin-text-field');
