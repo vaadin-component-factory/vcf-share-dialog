@@ -26,7 +26,6 @@ And use it:
 
  - `share-url`: The url which will be shared.
  - `members`: A list of people whom this URL is shared with.
- - `language`: Language used for default texts, default is "en".
  - `button-caption`: Text shown inside the button.
  - `title-text`: Title of share dialog.
  - `secondary-title-text`: Secondary title shown on the top right corner of share dialog.
