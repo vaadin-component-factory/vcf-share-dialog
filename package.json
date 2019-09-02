@@ -1,6 +1,6 @@
 {
   "name": "@vaadin-component-factory/vcf-share-dialog",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Vaadin Component Factory Share Dialog",
   "main": "theme/lumo/vcf-share-dialog.js",
   "author": "Vaadin Ltd",
