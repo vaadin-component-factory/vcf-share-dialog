@@ -1,5 +1,9 @@
 # &lt;vcf-share-dialog&gt;
 
+## Demo
+
+https://vcf-share-dialog.netlify.com/
+
 ## Installation
 
 Install `vcf-share-dialog`:
@@ -24,25 +28,27 @@ And use it:
 
 ### Attributes
 
- - `share-url`: The url which will be shared.
- - `members`: A list of people whom this URL is shared with.
- - `button-caption`: Text shown inside the button.
- - `title-text`: Title of share dialog.
- - `secondary-title-text`: Secondary title shown on the top right corner of share dialog.
- - `share-title`: Title used for native share.
- - `share-text`: Description used for native share.
- - `share-button-text`: Text shown inside native share button.
- - `description-text`: Description text of share dialog.
- - `copy-text`: Text shown inside copy button.
- - `notes-text`: Secondary text shown after copy button.
- - `members-text`: Title of members section.
- - `close-text`: Text shown inside close button.
- - `copied-text`: Text shown when the share url is copied.
+- `share-url`: The url which will be shared.
+- `members`: A list of people whom this URL is shared with.
+- `button-caption`: Text shown inside the button.
+- `title-text`: Title of share dialog.
+- `secondary-title-text`: Secondary title shown on the top right corner of share dialog.
+- `share-title`: Title used for native share.
+- `share-text`: Description used for native share.
+- `share-button-text`: Text shown inside native share button.
+- `description-text`: Description text of share dialog.
+- `copy-text`: Text shown inside copy button.
+- `notes-text`: Secondary text shown after copy button.
+- `members-text`: Title of members section.
+- `close-text`: Text shown inside close button.
+- `copied-text`: Text shown when the share url is copied.
 
 ### Events
+
 The component fires 2 custom events:
- - `vcf-share-dialog-opened`: when the share dialog opens.
- - `vcf-share-dialog-link-copied`: when the sharable link is copied.
+
+- `vcf-share-dialog-opened`: when the share dialog opens.
+- `vcf-share-dialog-link-copied`: when the sharable link is copied.
 
 ## Running demo
 

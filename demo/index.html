@@ -5,59 +5,34 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes" />
     <title>vcf-share-dialog demo</title>
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-    <script type="module">
-      import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
-      import '@polymer/iron-demo-helpers/demo-snippet';
-      import '../theme/lumo/vcf-share-dialog.js';
-      window.addEventListener('WebComponentsReady', () => document.querySelector('main').classList.remove('hidden'));
-    </script>
+    <script type="module" src="demo.js"></script>
     <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles">
-        main {
-          opacity: 1;
-          transition: opacity 1s;
-        }
-        main.hidden {
-          opacity: 0;
-        }
-        .settings-list {
-          margin-top: 0;
-          padding-left: 0;
-          list-style-type: none;
-        }
-      </style>
+      <style is="custom-style" include="demo-pages-shared-styles"></style>
     </custom-style>
   </head>
   <body>
-    <main class="vertical-section-container centered hidden">
-      <h3>Basic</h3>
-      <ul class="settings-list">
-        <li><strong>share-url:</strong> The url which will be shared.</li>
-      </ul>
+    <div class="vertical-section-container">
       <demo-snippet>
         <template>
+          <!-- Minimum Settings -->
           <vcf-share-dialog share-url="https://vaadin.com/components"></vcf-share-dialog>
-        </template>
-      </demo-snippet>
-      <h3>All settings</h3>
-      <ul class="settings-list">
-        <li><strong>share-url:</strong> The url which will be shared.</li>
-        <li><strong>members:</strong> A list of people whom this URL is shared with.</li>
-        <li><strong>button-caption:</strong> Text shown inside the button.</li>
-        <li><strong>title-text:</strong> Title of share dialog.</li>
-        <li><strong>secondary-title-text:</strong> Secondary title shown on the top right corner of share dialog.</li>
-        <li><strong>share-title:</strong> Title used for native share.</li>
-        <li><strong>share-text:</strong> Description used for native share.</li>
-        <li><strong>share-button-text:</strong> Text shown inside native share button.</li>
-        <li><strong>description-text:</strong> Description text of share dialog.</li>
-        <li><strong>copy-text:</strong> Text shown inside copy button.</li>
-        <li><strong>notes-text:</strong> Secondary text shown after copy button.</li>
-        <li><strong>members-text:</strong> Title of members section.</li>
-        <li><strong>close-text:</strong> Text shown inside close button.</li>
-        <li><strong>copied-text:</strong> Text shown when the share url is copied.</li>
-      </ul>
-      <demo-snippet>
-        <template>
+
+          <!-- 
+            All settings:
+            share-url: The url which will be shared.
+            button-caption: Text shown inside the button.
+            title-text: Title of share dialog.
+            secondary-title-text: Secondary title shown on the top right corner of share dialog.
+            share-title: Title used for native share.
+            share-text: Description used for native share.
+            share-button-text: Text shown on the native share button
+            description-text: Description text of share dialog.
+            copy-text: Text shown inside copy button.
+            notes-text: Secondary text shown after copy button.
+            members-text: Title of members section.
+            close-text: Text shown inside close button.
+            copied-text: Text shown when the share url is copied.
+          -->
           <vcf-share-dialog
             share-url="https://vaadin.com/components"
             button-caption="Share this..."
@@ -73,6 +48,7 @@
             close-text="Cancel"
             copied-text="Link copied!"
           ></vcf-share-dialog>
+
           <script>
             window.addEventListener('WebComponentsReady', () => {
               const members = [{ name: 'Jennifer' }, { name: 'Tom' }];
@@ -94,6 +70,6 @@
           </script>
         </template>
       </demo-snippet>
-    </main>
+    </div>
   </body>
 </html>
