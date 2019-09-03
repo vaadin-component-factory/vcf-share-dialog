@@ -173,10 +173,6 @@ class VcfShareDialog extends ElementMixin(ThemableMixin(PolymerElement)) {
     return 'vcf-share-dialog';
   }
 
-  static get version() {
-    return '0.4.6';
-  }
-
   static get properties() {
     return {
       buttonCaption: {

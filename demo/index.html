@@ -7,33 +7,71 @@
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
     <script type="module" src="demo.js"></script>
     <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles"></style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        .centered {
+          max-width: 1000px;
+        }
+        main {
+          opacity: 1;
+          transition: opacity 1s;
+        }
+        main.hidden {
+          opacity: 0;
+        }
+      </style>
     </custom-style>
+    <script>
+      window.addEventListener('WebComponentsReady', () => document.querySelector('main').classList.remove('hidden'));
+    </script>
   </head>
   <body>
-    <div class="vertical-section-container">
+    <main class="vertical-section-container centered hidden">
+      <h3>Basic usage</h3>
       <demo-snippet>
         <template>
           <!-- Minimum Settings -->
-          <vcf-share-dialog share-url="https://vaadin.com/components"></vcf-share-dialog>
+          <vcf-share-dialog id="basic" share-url="https://vaadin.com/components"></vcf-share-dialog>
 
+          <script>
+            window.addEventListener('WebComponentsReady', () => {
+              const members = [{ name: 'Jennifer' }, { name: 'Tom' }];
+              // assign members array to all share dialogs
+              const basicDialog = document.querySelectorAll('basic');
+              basicDialog.members = members;
+
+              /*
+               * The component fires 2 custom events:
+               *  - vcf-share-dialog-opened: when the share dialog opens
+               *  - vcf-share-dialog-link-copied: when the sharable link is copied
+               */
+              basicDialog.addEventListener('vcf-share-dialog-opened', () => {
+                console.log('Share dialog opened');
+              });
+            });
+          </script>
+        </template>
+      </demo-snippet>
+      <h3>Providing all settings</h3>
+      <demo-snippet>
+        <template>
           <!-- 
-            All settings:
-            share-url: The url which will be shared.
-            button-caption: Text shown inside the button.
-            title-text: Title of share dialog.
-            secondary-title-text: Secondary title shown on the top right corner of share dialog.
-            share-title: Title used for native share.
-            share-text: Description used for native share.
-            share-button-text: Text shown on the native share button
-            description-text: Description text of share dialog.
-            copy-text: Text shown inside copy button.
-            notes-text: Secondary text shown after copy button.
-            members-text: Title of members section.
-            close-text: Text shown inside close button.
-            copied-text: Text shown when the share url is copied.
-          -->
+              All settings:
+              share-url: The url which will be shared.
+              button-caption: Text shown inside the button.
+              title-text: Title of share dialog.
+              secondary-title-text: Secondary title shown on the top right corner of share dialog.
+              share-title: Title used for native share.
+              share-text: Description used for native share.
+              share-button-text: Text shown on the native share button
+              description-text: Description text of share dialog.
+              copy-text: Text shown inside copy button.
+              notes-text: Secondary text shown after copy button.
+              members-text: Title of members section.
+              close-text: Text shown inside close button.
+              copied-text: Text shown when the share url is copied.
+            -->
           <vcf-share-dialog
+            id="all-settings"
             share-url="https://vaadin.com/components"
             button-caption="Share this..."
             title-text="Share Project"
@@ -53,23 +91,12 @@
             window.addEventListener('WebComponentsReady', () => {
               const members = [{ name: 'Jennifer' }, { name: 'Tom' }];
               // assign members array to all share dialogs
-              const shareDialogs = document.querySelectorAll('vcf-share-dialog');
-              [...shareDialogs].forEach(shareDialog => {
-                shareDialog.members = members;
-
-                /*
-                 * The component fires 2 custom events:
-                 *  - vcf-share-dialog-opened: when the share dialog opens
-                 *  - vcf-share-dialog-link-copied: when the sharable link is copied
-                 */
-                shareDialog.addEventListener('vcf-share-dialog-opened', () => {
-                  console.log('Share dialog opened');
-                });
-              });
+              const allSettingsDialog = document.getElementById('all-settings');
+              allSettingsDialog.members = members;
             });
           </script>
         </template>
       </demo-snippet>
-    </div>
+    </main>
   </body>
 </html>
