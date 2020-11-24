@@ -292,7 +292,3 @@ customElements.define(VcfShareDialog.is, VcfShareDialog);
  * @namespace Vaadin
  */
 window.Vaadin.VcfShareDialog = VcfShareDialog;
-
-if (window.Vaadin.runIfDevelopmentMode) {
-  window.Vaadin.runIfDevelopmentMode('vaadin-license-checker', VcfShareDialog);
-}
